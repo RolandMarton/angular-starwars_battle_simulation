@@ -61,7 +61,7 @@
   }
 }
 
-$breakpoint-mobile: 480px;
+$breakpoint-mobile: 600px;
 
 @media screen and (max-width: $breakpoint-mobile) {
   .form-container {
