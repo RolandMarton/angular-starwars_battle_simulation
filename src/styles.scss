@@ -19,13 +19,10 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  overflow-x: hidden;
-}
-
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  min-width: 320px;
 
   body {
     width: 100%;
@@ -44,6 +41,7 @@ button.dark-button {
   font-weight: 700;
   font-size: 16px;
   width: fit-content;
+  cursor: pointer;
 }
 
 .yellow-button {
@@ -53,4 +51,12 @@ button.dark-button {
 .dark-button {
   background-color: var(--dark-gray);
   color: var(--white);
+}
+
+.copyright {
+  font-family: Poppins Regular;
+  color: var(--white);
+  font-size: 12px;
+  margin: 0 10px 10px;
+  text-align: right;
 }
