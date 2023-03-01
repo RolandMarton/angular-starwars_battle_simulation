@@ -14,8 +14,16 @@ $breakpoint-mobile: 600px;
     text-align: center;
     color: var(--white);
     font-size: 30px;
-    font-family: 'SF Distant Galaxy Alternate', sans-serif;
     text-transform: uppercase;
+    margin-bottom: 10px;
+
+    &:nth-child(1) {
+      font-family: "SF Distant Galaxy Alternative", sans-serif;
+    }
+
+    &:nth-child(2) {
+      font-family: "SF Distant Galaxy AltOutline", sans-serif;
+    }
 
     @media screen and (max-width: $breakpoint-mobile) {
       font-size: 20px;
@@ -26,4 +34,3 @@ $breakpoint-mobile: 600px;
     margin-top: 25px;
   }
 }
-

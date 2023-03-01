@@ -1,16 +1,31 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
   @ViewChild('signInForm') signInForm: NgForm;
 
+  constructor(private router: Router, private authService: AuthService) {}
+
   onSubmit() {
     console.log(this.signInForm.value);
+    this.authService
+      .login(this.signInForm.value.email, this.signInForm.value.password)
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.router.navigate(['/character']);
+        },
+        (error) => {
+          alert(error.error.error);
+        }
+      );
     this.signInForm.reset();
   }
 }
