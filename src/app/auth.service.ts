@@ -1,5 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Login } from './model/login';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +9,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  login(email: string, password: string) {
+  login(email: string, password: string): Observable<Login> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -21,10 +23,14 @@ export class AuthService {
     };
 
     return this.http
-      .post(
+      .post<Login>(
         'https://developer.webstar.hu/rest/frontend-felveteli/v2/authentication/',
         data,
         httpOptions
       );
+  }
+
+  saveToken(token: string) {
+    console.log(token);
   }
 }

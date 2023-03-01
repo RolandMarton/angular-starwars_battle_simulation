@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { Login, ErrorObject } from '../model/login';
 
 @Component({
   selector: 'app-login',
@@ -18,11 +19,12 @@ export class LoginComponent {
     this.authService
       .login(this.signInForm.value.email, this.signInForm.value.password)
       .subscribe(
-        (response) => {
+        (response: Login) => {
           console.log(response);
+          this.authService.saveToken(response.token);
           this.router.navigate(['/character']);
         },
-        (error) => {
+        (error: ErrorObject) => {
           alert(error.error.error);
         }
       );
