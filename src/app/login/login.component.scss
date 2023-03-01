@@ -1,0 +1,74 @@
+.form-container {
+  width: fit-content;
+  height: 100vh;
+  min-height: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+
+  & div {
+    margin-bottom: 20px;
+  }
+
+  & :not(button, input) {
+    color: var(--white);
+  }
+
+  .header-container {
+    margin-bottom: 50px;
+
+    .main-header {
+      font-family: "SF Distant Galaxy AltOutline", sans-serif;
+      font-size: 70px;
+    }
+
+    .sub-header {
+      font-family: "SF Distant Galaxy Alternate", sans-serif;
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+
+    & * {
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+    }
+
+    & label {
+      font-size: 14px;
+    }
+
+    & span {
+      color: var(--red);
+    }
+
+    & input {
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 5px 0 10px;
+    }
+  }
+
+  & button.yellow-button{
+    width: 50% ;
+  }
+}
+
+$breakpoint-mobile: 480px;
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .form-container {
+    .header-container {
+      .main-header {
+        font-size: 40px;
+      }
+    }
+  }
+}
