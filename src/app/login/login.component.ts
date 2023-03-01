@@ -7,9 +7,10 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  @ViewChild('signInForm') sgnForm: NgForm;
+  @ViewChild('signInForm') signInForm: NgForm;
 
   onSubmit() {
-    console.log(this.sgnForm.value);
+    console.log(this.signInForm.value);
+    this.signInForm.reset();
   }
 }
