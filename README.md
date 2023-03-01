@@ -1,27 +1,39 @@
-# StarWarsBattleSimulation
+# StarWars BattleSimulation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
+This is the homework from Webstar, which is basically a Star Wars theme Battle Arena Simulator.
 
-## Development server
+## Technologies
+- Sass
+- VsCode
+- Postman
+- Angular CLI: 15.2.0
+- Node: 18.12.1
+- Package Manager: npm 9.5.1
+- OS: win32 x64
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular: 15.2.0
 
-## Code scaffolding
+Package                         Version
+---------------------------------------------------------
+- @angular-devkit/architect       0.1502.0
+- @angular-devkit/build-angular   15.2.0
+- @angular-devkit/core            15.2.0
+- @angular-devkit/schematics      15.2.0
+- @schematics/angular             15.2.0
+- rxjs                            7.8.0
+- typescript                      4.9.5
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Development Day 1 - 4/5 hours
 
-## Build
+https://user-images.githubusercontent.com/88943189/222204378-8eb1236f-9f3a-4d12-a8d2-198e90a6a54d.mp4
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Challenges and highlights
+- Make the foundation of the Sass styles (root variables for colors, variables for devices, media querys, default style configuration, nesting, using different level selectors etc...)
+- Create the default component structure for the app using BEM methodologies
+- Create Routes using Routermodule - create not-found page, log-in page
+- Model interface for REST API HTTP response - for error, response
+- Create Authentication, and character selection service
+- Start the foundation of JWT token, planning to store the token and the refreshertoken in cookie or localstorage
+- Working with RxJS Observables with HTTPClientModule
+- Create application wide singleton service pattern
+- Create fully responsive web design with only one breakpoint yet for mobile devices
