@@ -1,0 +1,23 @@
+.error-message-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(../../assets/images/login-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .error-message {
+    margin: 0 15px;
+    text-align: center;
+    color: var(--white);
+    font-size: 30px;
+    font-family: "Star Wars", sans-serif;
+  }
+
+  & button.yellow-button {
+    margin-top: 25px;
+  }
+}

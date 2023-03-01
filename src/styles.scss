@@ -1,1 +1,56 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.cdnfonts.com/css/star-wars");
+
+//Default Settings
+
+:root {
+  --black: #000000;
+  --dark-gray: #333333;
+  --light-gray: #8a8a8a;
+  --white: #ffffff;
+  --yellow: #f7b500;
+  --red: #ff3232;
+  --blue: #00d2ff;
+  --green: #2ecc71;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+
+  body {
+    width: 100%;
+    height: 100vh;
+  }
+}
+
+// Commonly Used Html Elements
+
+button.yellow-button,
+button.dark-button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 3px solid var(--yellow);
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  width: fit-content;
+}
+
+.yellow-button {
+  background-color: var(--yellow);
+}
+
+.dark-button {
+  background-color: var(--dark-gray);
+  color: var(--white);
+}
