@@ -1,73 +1,82 @@
-.form-container {
-  width: fit-content;
-  height: 100vh;
-  min-height: 650px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  margin: auto;
+.login-page-wrapper {
+  background-image: url(../../assets/images/login-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 
-  & div {
-    margin-bottom: 20px;
-  }
-
-  & :not(button, input) {
-    color: var(--white);
-  }
-
-  .header-container {
-    margin-bottom: 50px;
-
-    .main-header {
-      font-family: "SF Distant Galaxy AltOutline", sans-serif;
-      font-size: 70px;
-    }
-
-    .sub-header {
-      font-family: "SF Distant Galaxy Alternate", sans-serif;
-      font-size: 30px;
-      margin-bottom: 15px;
-    }
-  }
-
-  .form-group {
+  .form-container {
+    width: fit-content;
+    height: 100vh;
+    min-height: 650px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
 
-    & * {
-      font-family: "Poppins", sans-serif;
-      font-weight: 700;
+    & div {
+      margin-bottom: 20px;
     }
 
-    & label {
-      font-size: 14px;
+    & :not(button, input) {
+      color: var(--white);
     }
 
-    & span {
-      color: var(--red);
+    .header-container {
+      margin-bottom: 50px;
+
+      .main-header {
+        font-family: "SF Distant Galaxy AltOutline", sans-serif;
+        font-size: 70px;
+      }
+
+      .sub-header {
+        font-family: "SF Distant Galaxy Alternate", sans-serif;
+        font-size: 30px;
+        margin-bottom: 15px;
+      }
     }
 
-    & input {
-      font-size: 16px;
-      padding: 10px;
-      border-radius: 5px;
-      margin: 5px 0 10px;
-    }
-  }
+    .form-group {
+      display: flex;
+      flex-direction: column;
 
-  & button.yellow-button{
-    width: 50% ;
+      & * {
+        font-family: "Poppins", sans-serif;
+        font-weight: 700;
+      }
+
+      & label {
+        font-size: 14px;
+      }
+
+      & span {
+        color: var(--red);
+      }
+
+      & input {
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 5px 0 10px;
+      }
+    }
+
+    & button.yellow-button {
+      width: 50%;
+    }
   }
 }
 
 $breakpoint-mobile: 600px;
 
 @media screen and (max-width: $breakpoint-mobile) {
-  .form-container {
-    .header-container {
-      .main-header {
-        font-size: 40px;
+  .login-page-wrapper {
+    .form-container {
+      .header-container {
+        .main-header {
+          font-size: 40px;
+        }
       }
     }
   }

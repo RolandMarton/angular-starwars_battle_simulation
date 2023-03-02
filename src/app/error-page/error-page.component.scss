@@ -1,36 +1,43 @@
 $breakpoint-mobile: 600px;
 
-.error-message-container {
-  width: 100%;
-  height: 100vh;
-  min-height: 650px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.error-page-wrapper {
+  background-image: url(../../assets/images/login-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 
-  .error-message {
-    margin: 0 15px;
-    text-align: center;
-    color: var(--white);
-    font-size: 30px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-
-    &:nth-child(1) {
-      font-family: "SF Distant Galaxy Alternative", sans-serif;
+  .error-message-container {
+    width: 100%;
+    height: 100vh;
+    min-height: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    .error-message {
+      margin: 0 15px;
+      text-align: center;
+      color: var(--white);
+      font-size: 30px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+  
+      &:nth-child(1) {
+        font-family: "SF Distant Galaxy Alternative", sans-serif;
+      }
+  
+      &:nth-child(2) {
+        font-family: "SF Distant Galaxy AltOutline", sans-serif;
+      }
+  
+      @media screen and (max-width: $breakpoint-mobile) {
+        font-size: 20px;
+      }
     }
-
-    &:nth-child(2) {
-      font-family: "SF Distant Galaxy AltOutline", sans-serif;
+  
+    & button.yellow-button {
+      margin-top: 25px;
     }
-
-    @media screen and (max-width: $breakpoint-mobile) {
-      font-size: 20px;
-    }
-  }
-
-  & button.yellow-button {
-    margin-top: 25px;
   }
 }

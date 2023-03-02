@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { CharacterSelectionComponent } from './character-selection/character-selection.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ErrorPageComponent,
-    CharacterSelectionComponent
+    CharacterSelectionComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
