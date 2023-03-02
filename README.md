@@ -23,7 +23,7 @@ Package                         Version
 - rxjs                            7.8.0
 - typescript                      4.9.5
 
-# Development Day 1 - 4/5 hours
+# Development Day 1
 
 https://user-images.githubusercontent.com/88943189/222204378-8eb1236f-9f3a-4d12-a8d2-198e90a6a54d.mp4
 
@@ -37,3 +37,18 @@ https://user-images.githubusercontent.com/88943189/222204378-8eb1236f-9f3a-4d12-
 - Working with RxJS Observables with HTTPClientModule
 - Create application wide singleton service pattern
 - Create fully responsive web design with only one breakpoint yet for mobile devices
+
+# Development Day 2
+
+https://user-images.githubusercontent.com/88943189/222537303-ce420557-f2c0-4f41-8d04-450d49ee4a6b.mp4
+
+## Challenges and highlights
+- Restructure the SCSS files, create mixins to remove code duplications, make variables, imports, full responsive design
+- Routing module has guards now, canActivate, canDeactivate (will have resolver as well)
+- Prevent user to reach routes if logged in - authentication JWT token
+- Useage of ngx-cookie-service
+- Planning to create refreshtoken - token system where token is updated if expired
+- Create navbar component - able to delete JWT token here and logout
+- Create footer component
+- Make semantic HTML structure for clean code
+- Have different breakpoints now, can be reached with variables from styles
