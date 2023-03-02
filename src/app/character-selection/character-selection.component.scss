@@ -1,0 +1,14 @@
+@import '../../styles.scss';
+
+.character-page-wrapper {
+  @include initBackground('../../assets/images/character-selection-bg.jpg');
+
+  .character-selection-container {
+    @include initContainer($flex: true, $flexAlign: true);
+
+    & p {
+      color: white;
+      font-size: 50px;
+    }
+  }
+}

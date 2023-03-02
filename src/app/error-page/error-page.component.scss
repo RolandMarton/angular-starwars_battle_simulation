@@ -1,19 +1,12 @@
+@import "../../styles.scss";
+
 $breakpoint-mobile: 600px;
 
 .error-page-wrapper {
-  background-image: url(../../assets/images/login-bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  @include initBackground("../../assets/images/login-bg.jpg");
 
   .error-message-container {
-    width: 100%;
-    height: 100vh;
-    min-height: 650px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    @include initContainer($flex: true, $flexAlign: true);
   
     .error-message {
       margin: 0 15px;

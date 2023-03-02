@@ -1,16 +1,11 @@
+@import "../../styles.scss";
+
 .login-page-wrapper {
-  background-image: url(../../assets/images/login-bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  @include initBackground("../../assets/images/login-bg.jpg");
 
   .form-container {
-    width: fit-content;
-    height: 100vh;
-    min-height: 650px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include initContainer($width: fit-content, $flex: true);
+  
     text-align: center;
     margin: auto;
 
