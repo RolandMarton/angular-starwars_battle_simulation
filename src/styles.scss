@@ -1,5 +1,44 @@
 @import url("https://fonts.cdnfonts.com/css/sf-distant-galaxy-altoutline");
 
+// Mixins
+$font-poppins: 'Poppins', sans-serif;
+
+@mixin initBackground($url_path) {
+  background-image: url($url_path);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@mixin initContainer($width: 100%, $flex: false, $flexAlign: false) {
+  width: $width;
+  min-height: 650px;
+  height: 100vh;
+
+  @if $flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @if $flexAlign {
+    align-items: center;
+  }
+}
+
+@mixin initText(
+  $color: var(--white),
+  $size: 16px,
+  $weight: 700,
+  $family: $font-poppins
+) {
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+  font-family: $family;
+}
+
+// Default configuration
 :root {
   --black: #000000;
   --dark-gray: #333333;
@@ -29,57 +68,21 @@ html {
 }
 
 // Commonly Used Html Elements
-
 button.yellow-button,
 button.dark-button {
   padding: 10px;
   border-radius: 5px;
   border: 3px solid var(--yellow);
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-size: 16px;
   width: fit-content;
   cursor: pointer;
 }
 
 .yellow-button {
   background-color: var(--yellow);
+  @include initText($color: var(--black));
 }
 
 .dark-button {
   background-color: var(--dark-gray);
-  color: var(--white);
-}
-
-.copyright {
-  font-family: Poppins Regular;
-  color: var(--white);
-  font-size: 12px;
-  margin: 0 10px 10px;
-  text-align: right;
-}
-
-// Mixins
-
-@mixin initBackground($url_path) {
-  background-image: url($url_path);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-@mixin initContainer($width: 100%, $flex: false, $flexAlign: false) {
-  width: $width;
-  min-height: 650px;
-  height: 100vh;
-
-  @if $flex {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  @if $flexAlign {
-    align-items: center;
-  }
+  @include initText();
 }

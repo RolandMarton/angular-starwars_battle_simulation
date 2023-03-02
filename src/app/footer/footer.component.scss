@@ -1,5 +1,13 @@
+@import '../../styles.scss';
+
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+.copyright {
+  @include initText($size: 12px, $weight: 400);
+  margin: 0 15px 10px;
+  text-align: right;
 }

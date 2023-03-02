@@ -1,0 +1,9 @@
+@import "../../styles.scss";
+
+.navbar-wrapper {
+  .navbar-container {
+    & p {
+      @include initText();
+    }
+  }
+}
