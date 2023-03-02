@@ -2,6 +2,10 @@
 
 This is the homework from Webstar, which is basically a Star Wars theme Battle Arena Simulator.
 
+## Design
+![1](https://user-images.githubusercontent.com/88943189/222539974-3c4c42c0-df0e-4d76-ba4d-fea70442227c.jpg)
+![2](https://user-images.githubusercontent.com/88943189/222539988-9450f955-fc33-4b7f-af0e-207645299026.jpg)
+
 ## Technologies
 - Sass
 - VsCode
