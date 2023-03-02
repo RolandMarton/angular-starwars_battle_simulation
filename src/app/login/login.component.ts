@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../auth.service';
 import { Login, ErrorObject } from '../model/login';
 
@@ -12,7 +13,10 @@ import { Login, ErrorObject } from '../model/login';
 export class LoginComponent {
   @ViewChild('signInForm') signInForm: NgForm;
 
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+  ) {}
 
   onSubmit() {
     console.log(this.signInForm.value);
