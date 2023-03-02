@@ -2,6 +2,8 @@
 
 // Mixins
 $font-poppins: 'Poppins', sans-serif;
+$breakpoint-mobile: 600px;
+$breakpoint-tablet: 992px;
 
 @mixin initBackground($url_path) {
   background-image: url($url_path);

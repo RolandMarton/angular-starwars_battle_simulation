@@ -1,11 +1,11 @@
 @import "../../styles.scss";
 
 .login-page-wrapper {
-  @include initBackground("../../assets/images/login-bg.jpg");
+  @include initBackground("../../assets/images/backgrounds/login-bg.jpg");
 
   .form-container {
     @include initContainer($width: fit-content, $flex: true);
-  
+
     text-align: center;
     margin: auto;
 
@@ -23,6 +23,10 @@
       .main-header {
         font-family: "SF Distant Galaxy AltOutline", sans-serif;
         font-size: 70px;
+
+        @media screen and (max-width: $breakpoint-mobile) {
+          font-size: 40px;
+        }
       }
 
       .sub-header {
@@ -54,20 +58,6 @@
 
     & button.yellow-button {
       width: 50%;
-    }
-  }
-}
-
-$breakpoint-mobile: 600px;
-
-@media screen and (max-width: $breakpoint-mobile) {
-  .login-page-wrapper {
-    .form-container {
-      .header-container {
-        .main-header {
-          font-size: 40px;
-        }
-      }
     }
   }
 }

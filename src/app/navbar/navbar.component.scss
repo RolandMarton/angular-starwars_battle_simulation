@@ -1,9 +1,40 @@
 @import "../../styles.scss";
 
 .navbar-wrapper {
+  width: 100%;
+
   .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--white);
+
+    .icon-container {
+      display: flex;
+      align-items: center;
+      margin: 0;
+
+      & img {
+        width: 20px;
+      }
+
+      .logout-button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+      }
+    }
+
     & p {
       @include initText();
+      padding: 0 15px;
+
+      @media screen and (max-width: $breakpoint-mobile){
+        font-size: 14px;
+        width: min-content;
+      }
     }
   }
 }

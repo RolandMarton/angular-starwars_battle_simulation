@@ -3,7 +3,7 @@
 $breakpoint-mobile: 600px;
 
 .error-page-wrapper {
-  @include initBackground("../../assets/images/login-bg.jpg");
+  @include initBackground("../../assets/images/backgrounds/login-bg.jpg");
 
   .error-message-container {
     @include initContainer($flex: true, $flexAlign: true);

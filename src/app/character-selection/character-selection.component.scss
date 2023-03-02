@@ -1,13 +1,18 @@
 @import '../../styles.scss';
 
 .character-page-wrapper {
-  @include initBackground('../../assets/images/character-selection-bg.jpg');
+  @include initContainer();
+  @include initBackground('../../assets/images/backgrounds/character-selection-bg.jpg');
+  padding: 25px 125px;
 
   .character-selection-container {
-    @include initContainer($flex: true, $flexAlign: true);
 
     & p {
       @include initText($size: 50px);
     }
+  }
+
+  @media screen and (max-width: $breakpoint-tablet){
+    padding: 25px 30px;
   }
 }
