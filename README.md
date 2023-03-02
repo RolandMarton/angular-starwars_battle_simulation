@@ -3,8 +3,15 @@
 This is the homework from Webstar, which is basically a Star Wars theme Battle Arena Simulator.
 
 ## Design
-![1](https://user-images.githubusercontent.com/88943189/222539974-3c4c42c0-df0e-4d76-ba4d-fea70442227c.jpg)
-![2](https://user-images.githubusercontent.com/88943189/222539988-9450f955-fc33-4b7f-af0e-207645299026.jpg)
+
+<div align="center">
+ <img src="https://user-images.githubusercontent.com/88943189/222539974-3c4c42c0-df0e-4d76-ba4d-fea70442227c.jpg" width="30%"></img> 
+ <img src="https://user-images.githubusercontent.com/88943189/222539988-9450f955-fc33-4b7f-af0e-207645299026.jpg" width="30%"></img> 
+ <img src="https://user-images.githubusercontent.com/88943189/222541082-a619d1f1-d605-483d-b533-e8ca0f87ea70.jpg" width="30%"></img> 
+ <img src="https://user-images.githubusercontent.com/88943189/222541093-6d0388a0-dc4f-409e-9bbd-5caa046f110b.jpg" width="30%"></img> 
+ <img src="https://user-images.githubusercontent.com/88943189/222541045-bb7d886c-8ec8-4821-adf7-4edcbb90aef4.jpg" width="30%"></img> 
+ <img src="https://user-images.githubusercontent.com/88943189/222541060-c929ed7d-27d2-4ee1-a497-a7d069c4d278.jpg" width="30%"></img>
+</div>
 
 ## Technologies
 - Sass
