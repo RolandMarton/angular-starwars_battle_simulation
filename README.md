@@ -14,25 +14,78 @@ This is the homework from Webstar, which is basically a Star Wars theme Battle A
 </div>
 
 ## Technologies
-- Sass
-- VsCode
-- Postman
-- Angular CLI: 15.2.0
-- Node: 18.12.1
-- Package Manager: npm 9.5.1
-- OS: win32 x64
 
-- Angular: 15.2.0
-
-Package                         Version
----------------------------------------------------------
-- @angular-devkit/architect       0.1502.0
-- @angular-devkit/build-angular   15.2.0
-- @angular-devkit/core            15.2.0
-- @angular-devkit/schematics      15.2.0
-- @schematics/angular             15.2.0
-- rxjs                            7.8.0
-- typescript                      4.9.5
+<div style="text-align:center" align="center">
+  <table>
+    <thead>
+      <tr>
+        <th>Technology</th>
+        <th>Version</th>
+        <th>&nbsp;</th>
+        <th>Package</th>
+        <th>Version</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Sass</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>@angular-devkit/architect</td>
+        <td>0.1502.0</td>
+      </tr>
+      <tr>
+        <td>VS Code</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>@angular-devkit/build-angular</td>
+        <td>15.2.0</td>
+      </tr>
+      <tr>
+        <td>Postman</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>@angular-devkit/core</td>
+        <td>15.2.0</td>
+      </tr>
+      <tr>
+        <td>Angular CLI</td>
+        <td>15.2.0</td>
+        <td>&nbsp;</td>
+        <td>@angular-devkit/schematics</td>
+        <td>15.2.0</td>
+      </tr>
+      <tr>
+        <td>Node</td>
+        <td>18.12.1</td>
+        <td>&nbsp;</td>
+        <td>@schematics/angular</td>
+        <td>15.2.0</td>
+      </tr>
+      <tr>
+        <td>Package Manager</td>
+        <td>npm 9.5.1</td>
+        <td>&nbsp;</td>
+        <td>rxjs</td>
+        <td>7.8.0</td>
+      </tr>
+      <tr>
+        <td>OS</td>
+        <td>win32 x64</td>
+        <td>&nbsp;</td>
+        <td>typescript</td>
+        <td>4.9.5</td>
+      </tr>
+      <tr>
+        <td>Angular</td>
+        <td>15.2.0</td>
+        <td>&nbsp;</td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 # Development Day 1
 
