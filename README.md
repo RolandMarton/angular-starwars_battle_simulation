@@ -1,6 +1,6 @@
 # StarWars BattleSimulation
 
-This is the homework from Webstar, which is basically a Star Wars theme Battle Arena Simulator.
+This is the homework from Webstar, which is basically a Star Wars theme Battle Arena Simulator made with Angular, Sass and REST API.
 
 ## Design
 
