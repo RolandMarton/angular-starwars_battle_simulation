@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   private readonly jwtTokenKey = 'token';
   private readonly refreshTokenKey = 'refreshToken';
+  private hasLoggedOut = false;
   private logInData: {
     refreshToken?: string;
     username?: string;
@@ -25,25 +26,39 @@ export class AuthService {
   ) {}
 
   isAuthenticated(): boolean {
-  const jwtToken = this.cookieService.get(this.jwtTokenKey);
-  const refreshToken = this.cookieService.get(this.refreshTokenKey);
-  if (!jwtToken || !refreshToken) {
-    this.router.navigate(['/login']);
-    return false;
-  }
-  if (this.isTokenExpired(jwtToken)) {
-    this.refreshAccessToken().subscribe(
-      (response) => {
-        // Token has been refreshed, do nothing
-      },
-      (error) => {
-        console.log(error);
+    const jwtToken = this.cookieService.get(this.jwtTokenKey);
+    const refreshToken = this.cookieService.get(this.refreshTokenKey);
+
+    if (!jwtToken || !refreshToken) {
+      if (!this.hasLoggedOut) {
+        this.hasLoggedOut = true;
         this.logout();
       }
-    );
+      return false;
+    }
+
+    if (this.isTokenExpired(jwtToken)) {
+      if (!this.logInData.refreshToken) {
+        this.hasLoggedOut = true;
+        this.logout();
+        return false;
+      }
+      this.refreshAccessToken().subscribe(
+        (response) => {
+          // Token has been refreshed, do nothing
+        },
+        (error) => {
+          console.log(error);
+          if (!this.hasLoggedOut) {
+            this.hasLoggedOut = true;
+            this.logout();
+          }
+        }
+      );
+    }
+
+    return !this.isTokenExpired(jwtToken);
   }
-  return !this.isTokenExpired(jwtToken);
-}
 
   login(email: string, password: string): Observable<Login> {
     const httpOptions = {
