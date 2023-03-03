@@ -32,7 +32,6 @@ export class AuthService {
     if (!jwtToken || !refreshToken) {
       if (!this.hasLoggedOut) {
         this.hasLoggedOut = true;
-        this.logout();
       }
       return false;
     }
@@ -40,7 +39,6 @@ export class AuthService {
     if (this.isTokenExpired(jwtToken)) {
       if (!this.logInData.refreshToken) {
         this.hasLoggedOut = true;
-        this.logout();
         return false;
       }
       this.refreshAccessToken().subscribe(
@@ -51,7 +49,6 @@ export class AuthService {
           console.log(error);
           if (!this.hasLoggedOut) {
             this.hasLoggedOut = true;
-            this.logout();
           }
         }
       );
