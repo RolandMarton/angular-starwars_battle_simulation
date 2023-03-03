@@ -25,25 +25,25 @@ export class AuthService {
   ) {}
 
   isAuthenticated(): boolean {
-    const jwtToken = this.cookieService.get(this.jwtTokenKey);
-    const refreshToken = this.cookieService.get(this.refreshTokenKey);
-    if (!jwtToken || !refreshToken) {
-      this.router.navigate(['/']);
-      return false;
-    }
-    if (this.isTokenExpired(jwtToken)) {
-      this.refreshAccessToken().subscribe(
-        (response) => {
-          // Token has been refreshed, do nothing
-        },
-        (error) => {
-          console.log(error);
-          this.logout();
-        }
-      );
-    }
-    return !this.isTokenExpired(jwtToken);
+  const jwtToken = this.cookieService.get(this.jwtTokenKey);
+  const refreshToken = this.cookieService.get(this.refreshTokenKey);
+  if (!jwtToken || !refreshToken) {
+    this.router.navigate(['/login']);
+    return false;
   }
+  if (this.isTokenExpired(jwtToken)) {
+    this.refreshAccessToken().subscribe(
+      (response) => {
+        // Token has been refreshed, do nothing
+      },
+      (error) => {
+        console.log(error);
+        this.logout();
+      }
+    );
+  }
+  return !this.isTokenExpired(jwtToken);
+}
 
   login(email: string, password: string): Observable<Login> {
     const httpOptions = {
@@ -138,11 +138,11 @@ export class AuthService {
     console.log('This is my Refresh Token: ' + this.getRefreshToken());
   }
 
-  getJwtToken(): string {
+  private getJwtToken(): string {
     return this.cookieService.get(this.jwtTokenKey);
   }
 
-  getRefreshToken(): string {
+  private getRefreshToken(): string {
     return this.cookieService.get(this.refreshTokenKey);
   }
 
