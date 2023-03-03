@@ -14,7 +14,7 @@ export class CharacterSelectionComponent implements OnInit, DoCheck {
 
   ngOnInit(): void {
     this.isAuthenticated = this.authService.isAuthenticated();
-    if(!this.isAuthenticated){
+    if (!this.isAuthenticated) {
       this.authService.logout();
     }
   }

@@ -13,10 +13,7 @@ import { Login, ErrorObject } from '../model/login';
 export class LoginComponent {
   @ViewChild('signInForm') signInForm: NgForm;
 
-  constructor(
-    private router: Router,
-    private authService: AuthService,
-  ) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   onSubmit() {
     console.log(this.signInForm.value);

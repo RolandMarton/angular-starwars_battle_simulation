@@ -7,7 +7,7 @@ $breakpoint-mobile: 600px;
 
   .error-message-container {
     @include initContainer($flex: true, $flexAlign: true);
-  
+
     .error-message {
       margin: 0 15px;
       text-align: center;
@@ -15,20 +15,20 @@ $breakpoint-mobile: 600px;
       font-size: 30px;
       text-transform: uppercase;
       margin-bottom: 10px;
-  
+
       &:nth-child(1) {
         font-family: "SF Distant Galaxy Alternative", sans-serif;
       }
-  
+
       &:nth-child(2) {
         font-family: "SF Distant Galaxy AltOutline", sans-serif;
       }
-  
+
       @media screen and (max-width: $breakpoint-mobile) {
         font-size: 20px;
       }
     }
-  
+
     & button.yellow-button {
       margin-top: 25px;
     }
