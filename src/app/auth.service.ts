@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  private readonly jwtTokenKey = 'jwtToken';
+  private readonly jwtTokenKey = 'token';
   private readonly refreshTokenKey = 'refreshToken';
   private refreshIntervalId: any;
   private logInData: {
@@ -101,21 +101,9 @@ export class AuthService {
       );
   }
 
-  private saveJwtToken(token: string) {
-    const jwtHelper = new JwtHelperService();
-    const expirationDate = jwtHelper.getTokenExpirationDate(token);
-    const options: CookieOptions = {
-      expires: expirationDate || undefined,
-      sameSite: 'Strict',
-    };
-    this.cookieService.set(this.jwtTokenKey, token, options);
-    console.log('This is my Jwt Token: ' + this.getJwtToken());
-    this.refreshAccessTokenInterval();
-  }
-
   private refreshAccessTokenInterval() {
     clearInterval(this.refreshIntervalId); // clear previous interval
-    const refreshInterval = 5000; // 5 seconds
+    const refreshInterval = 30000; // 10 seconds
     this.refreshIntervalId = setInterval(() => {
       const refreshToken = this.getRefreshToken();
       if (refreshToken) {
@@ -130,6 +118,18 @@ export class AuthService {
         );
       }
     }, refreshInterval);
+  }
+
+  private saveJwtToken(token: string) {
+    const jwtHelper = new JwtHelperService();
+    const expirationDate = jwtHelper.getTokenExpirationDate(token);
+    const options: CookieOptions = {
+      expires: expirationDate || undefined,
+      sameSite: 'Strict',
+    };
+    this.cookieService.set(this.jwtTokenKey, token, options);
+    console.log('This is my Jwt Token: ' + this.getJwtToken());
+    this.refreshAccessTokenInterval();
   }
 
   private saveRefreshToken(token: string) {
