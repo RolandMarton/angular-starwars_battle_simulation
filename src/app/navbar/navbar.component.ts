@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +7,9 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  constructor(private router: Router, private cookieService: CookieService){}
+  constructor(private authService: AuthService){}
 
   onLogOut() {
-    this.cookieService.delete('jwtToken');
-    this.router.navigate(['/'])
+    this.authService.logout();
   }
 }

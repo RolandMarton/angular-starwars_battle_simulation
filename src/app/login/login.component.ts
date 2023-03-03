@@ -25,7 +25,6 @@ export class LoginComponent {
       .subscribe(
         (response: Login) => {
           console.log(response);
-          this.authService.saveToken(response.token);
           this.router.navigate(['/character']);
         },
         (error: ErrorObject) => {
