@@ -110,26 +110,27 @@ export class AuthService {
     };
     this.cookieService.set(this.jwtTokenKey, token, options);
     console.log('This is my Jwt Token: ' + this.getJwtToken());
-    // this.refreshAccessTokenInterval();
+    this.refreshAccessTokenInterval();
   }
 
-  // private refreshAccessTokenInterval() {
-  //   const refreshInterval = 5000; // 5 seconds
-  //   this.refreshIntervalId = setInterval(async () => {
-  //     const refreshToken = this.getRefreshToken();
-  //     if (refreshToken) {
-  //       try {
-  //         const response = await this.refreshAccessToken().toPromise();
-  //         if (response) {
-  //           this.saveJwtToken(response.token);
-  //         }
-  //       } catch (error) {
-  //         console.log(error);
-  //         this.logout();
-  //       }
-  //     }
-  //   }, refreshInterval);
-  // }
+  private refreshAccessTokenInterval() {
+    clearInterval(this.refreshIntervalId); // clear previous interval
+    const refreshInterval = 5000; // 5 seconds
+    this.refreshIntervalId = setInterval(() => {
+      const refreshToken = this.getRefreshToken();
+      if (refreshToken) {
+        this.refreshAccessToken().subscribe(
+          (response) => {
+            this.saveJwtToken(response.token);
+          },
+          (error) => {
+            console.log(error);
+            this.logout();
+          }
+        );
+      }
+    }, refreshInterval);
+  }
 
   private saveRefreshToken(token: string) {
     const expirationDate = new Date(
