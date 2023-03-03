@@ -116,3 +116,15 @@ https://user-images.githubusercontent.com/88943189/222537303-ce420557-f2c0-4f41-
 - Create footer component
 - Make semantic HTML structure for clean code
 - Have different breakpoints now, can be reached with variables from styles
+
+# Development Day 3 
+
+https://user-images.githubusercontent.com/88943189/222834633-2d93bc42-a26a-4e82-85b2-cb600adfcbf7.mp4
+
+## Challenges and highlights
+- Discovering several approaches for authentication like auth0, http interceptor, refreshtoken - accesstoken etc
+- Firstly implemented a logic where interval check every x seconds whether there is a cookie or not. If not then log out
+- Had logic where it checks every x seconds and if there is no cookie it logs out
+- Now a logic was implemented where with lifecycle hooks it checks authentication. If one of the essential token is missing, like access or refreshtoken then return false. One implementation had logout inside the method, but following single responsivity it's in different method.
+- Current implementation logs out if the authentication fails. 
+- You can return to the route /character if still have the session token. If not you can't. 
