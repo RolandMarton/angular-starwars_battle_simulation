@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
 export class AuthService {
   private readonly jwtTokenKey = 'token';
   private readonly refreshTokenKey = 'refreshToken';
-  private refreshIntervalId: any;
   private logInData: {
     refreshToken?: string;
     username?: string;
@@ -27,7 +26,23 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     const jwtToken = this.cookieService.get(this.jwtTokenKey);
-    return jwtToken !== null && !this.isJwtTokenExpired(jwtToken);
+    const refreshToken = this.cookieService.get(this.refreshTokenKey);
+    if (!jwtToken || !refreshToken) {
+      this.router.navigate(['/']);
+      return false;
+    }
+    if (this.isTokenExpired(jwtToken)) {
+      this.refreshAccessToken().subscribe(
+        (response) => {
+          // Token has been refreshed, do nothing
+        },
+        (error) => {
+          console.log(error);
+          this.logout();
+        }
+      );
+    }
+    return !this.isTokenExpired(jwtToken);
   }
 
   login(email: string, password: string): Observable<Login> {
@@ -59,7 +74,6 @@ export class AuthService {
   }
 
   logout() {
-    clearInterval(this.refreshIntervalId);
     this.cookieService.delete(this.jwtTokenKey);
     this.cookieService.delete(this.refreshTokenKey);
     this.router.navigate(['/']);
@@ -101,25 +115,6 @@ export class AuthService {
       );
   }
 
-  private refreshAccessTokenInterval() {
-    clearInterval(this.refreshIntervalId); // clear previous interval
-    const refreshInterval = 30000; // 10 seconds
-    this.refreshIntervalId = setInterval(() => {
-      const refreshToken = this.getRefreshToken();
-      if (refreshToken) {
-        this.refreshAccessToken().subscribe(
-          (response) => {
-            this.saveJwtToken(response.token);
-          },
-          (error) => {
-            console.log(error);
-            this.logout();
-          }
-        );
-      }
-    }, refreshInterval);
-  }
-
   private saveJwtToken(token: string) {
     const jwtHelper = new JwtHelperService();
     const expirationDate = jwtHelper.getTokenExpirationDate(token);
@@ -129,7 +124,6 @@ export class AuthService {
     };
     this.cookieService.set(this.jwtTokenKey, token, options);
     console.log('This is my Jwt Token: ' + this.getJwtToken());
-    this.refreshAccessTokenInterval();
   }
 
   private saveRefreshToken(token: string) {
@@ -144,15 +138,15 @@ export class AuthService {
     console.log('This is my Refresh Token: ' + this.getRefreshToken());
   }
 
-  private getJwtToken(): string {
+  getJwtToken(): string {
     return this.cookieService.get(this.jwtTokenKey);
   }
 
-  private getRefreshToken(): string {
+  getRefreshToken(): string {
     return this.cookieService.get(this.refreshTokenKey);
   }
 
-  private isJwtTokenExpired(token: string): boolean {
+  private isTokenExpired(token: string): boolean {
     const jwtHelper = new JwtHelperService();
     const isExpired = jwtHelper.isTokenExpired(token);
     return isExpired;
