@@ -5,9 +5,20 @@ import { CharacterSelectionComponent } from './character-selection/character-sel
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { LoginGuardService } from './login-guard.service';
 import { LoginComponent } from './login/login.component';
+import { LogoutGuardService } from './logout-guard.service';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { 
+    path: '', 
+    component: LoginComponent, 
+    canActivate: [LogoutGuardService]
+   },
+  {
+    path: 'character',
+    component: CharacterSelectionComponent,
+    canActivate: [AuthGuardService],
+    canDeactivate: [LoginGuardService],
+  },
   {
     path: 'not-found',
     component: ErrorPageComponent,
@@ -15,12 +26,6 @@ const routes: Routes = [
       message: 'Az oldal amit keresel elveszett a Galaxisban!',
       message2: 'Térj vissza a fedélzetre!',
     },
-  },
-  {
-    path: 'character',
-    component: CharacterSelectionComponent,
-    canActivate: [AuthGuardService],
-    canDeactivate: [LoginGuardService],
   },
   { path: '**', redirectTo: '/not-found' },
 ];
