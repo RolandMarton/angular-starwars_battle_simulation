@@ -119,7 +119,7 @@ https://user-images.githubusercontent.com/88943189/222537303-ce420557-f2c0-4f41-
 
 # Development Day 3 
 
-https://user-images.githubusercontent.com/88943189/222834633-2d93bc42-a26a-4e82-85b2-cb600adfcbf7.mp4
+https://user-images.githubusercontent.com/88943189/222843363-019e1230-7203-4802-80e8-1635689a9d57.mp4
 
 ## Challenges and highlights
 - Discovering several approaches for authentication like auth0, http interceptor, refreshtoken - accesstoken etc
@@ -127,4 +127,5 @@ https://user-images.githubusercontent.com/88943189/222834633-2d93bc42-a26a-4e82-
 - Had logic where it checks every x seconds and if there is no cookie it logs out
 - Now a logic was implemented where with lifecycle hooks it checks authentication. If one of the essential token is missing, like access or refreshtoken then return false. One implementation had logout inside the method, but following single responsivity it's in different method.
 - Current implementation logs out if the authentication fails. 
-- You can return to the route /character if still have the session token. If not you can't. 
+- You can return to the route /character if still have the session token. If not you can't.
+- Created complete guard logic to prevent logged in user to reach log in form, and logged out user to reach character selection page
