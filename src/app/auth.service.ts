@@ -29,7 +29,12 @@ export class AuthService {
     private http: HttpClient,
     private cookieService: CookieService,
     private router: Router
-  ) {}
+  ) {
+    const userData = localStorage.getItem('loggedInUserData');
+    if (userData) {
+      this.loggedInUserData.next(JSON.parse(userData));
+    }
+  }
 
   isAuthenticated(): boolean {
     const jwtToken = this.cookieService.get(this.jwtTokenKey);
@@ -85,10 +90,12 @@ export class AuthService {
       .pipe(
         tap((response) => {
           this.logInData.refreshToken = response.refreshToken;
-          this.loggedInUserData.next({
+          const userData = {
             firstName: response.user.firstName,
-            lastName: response.user.lastName
-          })
+            lastName: response.user.lastName,
+          };
+          this.loggedInUserData.next(userData);
+          localStorage.setItem('loggedInUserData', JSON.stringify(userData));
           this.saveJwtToken(response.token);
           this.saveRefreshToken(response.refreshToken);
         })
