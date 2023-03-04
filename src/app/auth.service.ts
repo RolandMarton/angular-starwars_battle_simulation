@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap, throwError, catchError } from 'rxjs';
+import { Observable, tap, throwError, catchError, BehaviorSubject } from 'rxjs';
 import { Login } from './model/login';
 import { CookieOptions, CookieService } from 'ngx-cookie-service';
 import { JwtHelperService } from '@auth0/angular-jwt';
@@ -18,6 +18,12 @@ export class AuthService {
     username?: string;
     password?: string;
   } = {};
+
+  private loggedInUserData = new BehaviorSubject<any>({});
+
+  get loggedInUserData$() {
+    return this.loggedInUserData.asObservable();
+  }
 
   constructor(
     private http: HttpClient,
@@ -79,6 +85,10 @@ export class AuthService {
       .pipe(
         tap((response) => {
           this.logInData.refreshToken = response.refreshToken;
+          this.loggedInUserData.next({
+            firstName: response.user.firstName,
+            lastName: response.user.lastName
+          })
           this.saveJwtToken(response.token);
           this.saveRefreshToken(response.refreshToken);
         })
