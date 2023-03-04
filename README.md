@@ -129,3 +129,15 @@ https://user-images.githubusercontent.com/88943189/222843363-019e1230-7203-4802-
 - Current implementation logs out if the authentication fails. 
 - You can return to the route /character if still have the session token. If not you can't.
 - Created complete guard logic to prevent logged in user to reach log in form, and logged out user to reach character selection page
+
+# Development Day 4
+
+No video at this time :( It looks the same really. 
+
+![image](https://user-images.githubusercontent.com/88943189/222930083-7d8f37b1-30d9-4b3b-9841-12ecc95b6fc0.png)
+
+## Challenges and highligts
+- When I wanted to get the firstName and lastName for the navbar template, i ran into a problem. So I had to rethink the logic behind authentication and login
+- When I wanted to get the loggedInData in the template the object was empty. So I created a solution where I used BehaviourSubject from RxJS. As it gives back the lates value I could subscribe to it and get the data object. It 
+- Next problem was that when i was already authenticated. The user doesn't log in obviously. So the page didnt know the the firstName and lastName. What was the solution? When I once logged in I set the value to the localStorage in the loggedInUserData. So with the constructor I applied the logic to get the item and to parse it.
+- So in the end I could get the values from the template. Little bit more complicated I imagined as I think I overdid (?!) the authentication. But this is the first time I do it, and I didn't learn it from Udemy yet. The best practises. There is no perfect code, but I think i improved a lot and looking forward to get the best practise from pros. 
