@@ -1,49 +1,57 @@
 <div class="character-page-wrapper">
   <app-navbar></app-navbar>
-  <div
-    class="character-information-container"
+  <swiper
+      [config]="config"
+      class="my-swiper"
+      #swiperSlideShow
+    >
+  <ng-template
+    swiperSlide
+    class="character-information-wrapper"
     *ngFor="let character of characters; index as i"
   >
-    <div class="top-container">
-      <div class="sub-info-container">
-        <div class="side-container-wrapper">
-          <div
-            class="side-color-container"
-            [ngStyle]="{ backgroundColor: getColor(character.side) }"
-          ></div>
-          <div class="side-container">
-            <p class="side-title">Oldal</p>
-            <p class="side-name">{{ character.side }}</p>
+    <div class="character-information-container">
+      <div class="sub-info-wrapper">
+        <div class="sub-info-container">
+          <div class="side-container-wrapper">
+            <div
+              class="side-color-container"
+              [ngStyle]="{ backgroundColor: getColor(character.side) }"
+            ></div>
+            <div class="side-container">
+              <p class="side-title">OLDAL</p>
+              <p class="side-name">{{ character.side == "DARK" ? "SÖTÉT" : "VILÁGOS" }}</p>
+            </div>
           </div>
-        </div>
-        <div class="special-power-container-wrapper">
-          <div class="star-container">
-            <img src="../../assets/images/icons/star.png" alt="Star" />
-          </div>
-          <div class="special-power-container">
-            <p class="special-power-title">Különleges Erő</p>
-            <p class="special-power-name">{{ character.force.power }}</p>
+          <div class="special-power-container-wrapper">
+            <div class="star-container">
+              <img src="../../assets/images/icons/star.png" alt="Star" />
+            </div>
+            <div class="special-power-container">
+              <p class="special-power-title">KÜLÖNLEGES ERŐ</p>
+              <p class="special-power-name">{{ character.force.power }}</p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="slider-container"></div>
-    </div>
-    <div class="character-profile-wrapper">
-      <div class="character-profile-container">
-        <div class="character-name-container">
-          <div [innerHTML]="character.name"></div>
+      <div class="character-profile-wrapper">
+        <div class="character-profile-container">
+          <div class="character-name-container">
+            <p class="character-name" [innerHTML]="character.name"></p>
+          </div>
+          <div class="character-description-container">
+            <p class="character-description">{{ character.description }}</p>
+          </div>
         </div>
-        <div class="character-description-container">
-          <p class="character-description">{{ character.description }}</p>
-        </div>
-      </div>
-      <div class="character-image-container">
-        <img
-          [src]="'../../assets/images/characters/' + character.id + '.png'"
-          alt="{{ character.id }}"
-        />
       </div>
     </div>
-  </div>
+    <div class="character-image-container">
+      <img
+        [src]="'../../assets/images/characters/' + character.id + '.png'"
+        alt="{{ character.id }}"
+      />
+    </div>
+  </ng-template>
+</swiper>
   <app-footer></app-footer>
 </div>

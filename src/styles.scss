@@ -6,6 +6,8 @@ $star-jedi: "SF Distant Galaxy Alternate", sans-serif;
 $distant-galaxy: "SF Distant Galaxy AltOutline", sans-serif;
 $breakpoint-mobile: 600px;
 $breakpoint-tablet: 992px;
+$breakpoint-laptop: 1100px;
+$breakpoint-desktop: 1450px;
 
 @mixin initBackground($url_path) {
   background-image: url($url_path);
@@ -61,9 +63,13 @@ $breakpoint-tablet: 992px;
 }
 
 html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
   min-width: 320px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   body {
     width: 100%;

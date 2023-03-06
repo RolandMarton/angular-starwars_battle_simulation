@@ -1,18 +1,44 @@
-import {
-  Component,
-  DoCheck,
-  OnInit,
-} from '@angular/core';
+import { Component, DoCheck, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { CharacterService } from '../character.service';
 import { Character } from '../model/character';
+
+import SwiperCore, {
+  Keyboard,
+  Pagination,
+  Navigation,
+  Virtual,
+  SwiperOptions,
+  Autoplay
+} from 'swiper';
+
+SwiperCore.use([Keyboard, Pagination, Navigation, Virtual, Autoplay]);
 
 @Component({
   selector: 'app-character-selection',
   templateUrl: './character-selection.component.html',
   styleUrls: ['./character-selection.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class CharacterSelectionComponent implements OnInit, DoCheck {
+  
+  @ViewChild('swiperSlideShow') swiperSlideShow!: ElementRef;
+
+  config: SwiperOptions = {
+    slidesPerView: 1,
+    spaceBetween: 250,
+    navigation: true,
+    pagination: { clickable: true },
+    centeredSlides: true,
+    virtual: true,
+    keyboard: { enabled: true },
+    speed: 1500,
+    // autoplay: {
+    //   delay: 2500,
+    //   disableOnInteraction: false
+    // }
+  };
+
   myText = '';
   isAuthenticated: boolean = false;
   isFilled: boolean = false;
@@ -20,7 +46,7 @@ export class CharacterSelectionComponent implements OnInit, DoCheck {
 
   constructor(
     private authService: AuthService,
-    private characterService: CharacterService,
+    private characterService: CharacterService
   ) {}
 
   ngOnInit(): void {
