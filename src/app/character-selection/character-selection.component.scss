@@ -7,9 +7,84 @@
   );
   padding: 25px 125px;
 
-  .character-selection-container {
-    & p {
-      @include initText($size: 50px);
+  height: auto;
+
+  .character-information-container {
+    .top-container {
+      .sub-info-container {
+        display: flex;
+
+        .side-container-wrapper,
+        .special-power-container-wrapper {
+          display: flex;
+        }
+
+        .side-container,
+        .special-power-container {
+          & p:nth-child(1) {
+            @include initText($color: var(--yellow));
+          }
+
+          & p:nth-child(2) {
+            @include initText($size: 20px);
+          }
+        }
+
+        .side-container-wrapper {
+          .side-color-container {
+            width: 50px;
+            height: 50px;
+            border: 7.5px solid var(--white);
+          }
+        }
+
+        .special-power-container-wrapper {
+          .star-container {
+            background-color: var(--yellow);
+            width: 50px;
+            height: 50px;
+            position: relative;
+
+            & img {
+              width: 32.5px;
+              height: 32.5px;
+              transform: translate(-50%, -50%);
+              top: 50%;
+              left: 50%;
+              position: absolute;
+            }
+          }
+        }
+      }
+    }
+
+    .character-name-container {
+      div {
+        @include initText($family: $star-jedi, $size: 90px);
+      }
+    }
+
+    .character-description-container {
+      .character-description {
+        @include initText($weight: 400);
+      }
+    }
+
+    .character-image-container {
+      & img {
+        width: 500px;
+        background: radial-gradient(
+          ellipse at center 50%,
+          var(--yellow) 50%,
+          transparent 0%
+        );
+        //background-position: 70px 5px; It's buggy so i have to find another solution
+        background-position: center;
+      }
+    }
+
+    .character-profile-container {
+      display: flex;
     }
   }
 

@@ -11,7 +11,3 @@ export interface Character {
   createdTimestamp: number;
   description: string;
 }
-
-export interface Characters {
-  characters: Character[];
-}

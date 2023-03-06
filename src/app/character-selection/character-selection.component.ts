@@ -1,7 +1,14 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { AuthService } from '../auth.service';
 import { CharacterService } from '../character.service';
-import { Characters } from '../model/character';
+import { Character } from '../model/character';
 
 @Component({
   selector: 'app-character-selection',
@@ -11,11 +18,12 @@ import { Characters } from '../model/character';
 export class CharacterSelectionComponent implements OnInit, DoCheck {
   myText = '';
   isAuthenticated: boolean = false;
-  characters: Characters[];
+  isFilled: boolean = false;
+  characters: Character[] = [];
 
   constructor(
     private authService: AuthService,
-    private characterService: CharacterService
+    private characterService: CharacterService,
   ) {}
 
   ngOnInit(): void {
@@ -25,10 +33,9 @@ export class CharacterSelectionComponent implements OnInit, DoCheck {
     }
 
     this.characterService.getCharacters().subscribe(
-      (response: Characters[]) => {
+      (response: any) => {
         console.log(response);
-        console.log(this.characters);
-        this.characters = response;
+        this.characters = response.characters;
         console.log(this.characters);
       },
       (error) => {
@@ -42,6 +49,17 @@ export class CharacterSelectionComponent implements OnInit, DoCheck {
     this.isAuthenticated = this.authService.isAuthenticated();
     if (wasAuthenticated && !this.isAuthenticated) {
       this.authService.logout();
+    }
+  }
+
+  getColor(side: string) {
+    switch (side) {
+      case 'DARK':
+        return 'black';
+      case 'LIGHT':
+        return 'white';
+      default:
+        return null;
     }
   }
 }
