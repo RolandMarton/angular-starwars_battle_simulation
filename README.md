@@ -141,3 +141,44 @@ No video at this time :( It looks the same really.
 - When I wanted to get the loggedInData in the template the object was empty. So I created a solution where I used BehaviourSubject from RxJS. As it gives back the latest value I could subscribe to it and get the data object.
 - Next problem was that when i was already authenticated. The user doesn't log in obviously. So the page didnt know the the firstName and lastName. What was the solution? When I once logged in I set the value to the localStorage in the loggedInUserData. So with the constructor I applied the logic to get the item and to parse it.
 - So in the end I could get the values from the template. Little bit more complicated I imagined as I think I overdid (?!) the authentication. But this is the first time I do it, and I didn't learn it from Udemy yet. The best practises. There is no perfect code, but I think i improved a lot and looking forward to get the best practise from pros. 
+
+# Development Day 5
+
+FINAL PROGRAM FOR 1 WEEK SPRINT
+
+VIDEOS
+
+PART 1
+https://user-images.githubusercontent.com/88943189/223278956-070e4b68-6df6-4713-9e77-2e60481609bb.mp4
+
+PART 2
+https://user-images.githubusercontent.com/88943189/223278975-2a826831-3c34-482f-b28d-f64bc0e8296e.mp4
+
+PART 3
+https://user-images.githubusercontent.com/88943189/223278995-7c56c3b2-18de-4c42-bf78-4698dc93dcf1.mp4
+
+PHOTOS
+- Login Page
+![image](https://user-images.githubusercontent.com/88943189/223279078-0fdbd5da-24ec-4bad-98f6-c45ab8239d11.png)
+
+- Not Found Page
+![image](https://user-images.githubusercontent.com/88943189/223279124-d6e369cf-be7f-464d-87cb-4f9f28050bfc.png)
+
+- Character Selection
+![image](https://user-images.githubusercontent.com/88943189/223279194-331d1038-320e-439e-9450-e557e8e9b178.png)
+
+#Challenges and Highlights
+- Working with SwiperJS - SwiperOptions (config), Keyboard, Pagination, Navigation, Autoplay, Delay, Speed etc...
+- Working with DOM manipulation, Renderer2, Viewchild(), ElementRef - NOTE: ngFor ruined the viewchild as it was an undefined element. The solution could be lifecycle hook but it was 2 hour work and no final perfect solution for it. Get to known to lifecycle hooks like ngAfterViewInit, ngAfterContentChecked etc
+- New technique for me. To display the character name on the page as a HTML element [innerHTML]="character.name" solved the problem easily. No typescript, lifecycle hook logic was needed. Painfull hours of debugging as content wasn't displayed. Lesson learned.
+- Working more with media querys mixins, breakpoints, variables, webkit elements, pseudo elements ... with Sass. Could refactor the code to have a single massive block of media query following one to another. Stick to this method now.
+- Working with model interfaces
+- Full responsive, desktop, laptop, tablet, mobile view
+
+#Note
+- There is one more bug, but I am too tired to solve it as it's 12:30 now, and today I have to submit the homework. So I will do it now just to be sure be in time. If I log in, the content isn't displayed. Like the whole swiper but if you refresh it you get it. If you have once refreshed on the page. And log out. It is visible. So the key is to refresh the page. I will solve it but for now I will submit my homework
+- A lot of lesson was learnt especially about authentication, I had a lot of motivation during the development and learnt a lot of new stuff. I am glad to get this opportunity and thank you for the occasion!
+- I am a little bit sad I couldn't do the battle arena part. But I have done it in Vue.js in one of my project so at least I experienced how it should be done. 
+- So again thank you for the opportunity and hope to improve a lot like this in the future and I continue working on my Angular with Udemy!
+
+https://github.com/RolandMarton/vue-monster-slayer
