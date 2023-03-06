@@ -28,12 +28,14 @@
       </div>
       <div class="slider-container"></div>
     </div>
-    <div class="character-profile-container">
-      <div class="character-name-container">
-        <div [innerHTML]="character.name"></div>
-      </div>
-      <div class="character-description-container">
-        <p class="character-description">{{ character.description }}</p>
+    <div class="character-profile-wrapper">
+      <div class="character-profile-container">
+        <div class="character-name-container">
+          <div [innerHTML]="character.name"></div>
+        </div>
+        <div class="character-description-container">
+          <p class="character-description">{{ character.description }}</p>
+        </div>
       </div>
       <div class="character-image-container">
         <img

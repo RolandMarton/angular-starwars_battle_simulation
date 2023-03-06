@@ -1,10 +1,7 @@
 import {
   Component,
   DoCheck,
-  ElementRef,
   OnInit,
-  Renderer2,
-  ViewChild,
 } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { CharacterService } from '../character.service';
