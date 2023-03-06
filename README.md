@@ -138,6 +138,6 @@ No video at this time :( It looks the same really.
 
 ## Challenges and highligts
 - When I wanted to get the firstName and lastName for the navbar template, i ran into a problem. So I had to rethink the logic behind authentication and login
-- When I wanted to get the loggedInData in the template the object was empty. So I created a solution where I used BehaviourSubject from RxJS. As it gives back the lates value I could subscribe to it and get the data object. It 
+- When I wanted to get the loggedInData in the template the object was empty. So I created a solution where I used BehaviourSubject from RxJS. As it gives back the latest value I could subscribe to it and get the data object.
 - Next problem was that when i was already authenticated. The user doesn't log in obviously. So the page didnt know the the firstName and lastName. What was the solution? When I once logged in I set the value to the localStorage in the loggedInUserData. So with the constructor I applied the logic to get the item and to parse it.
 - So in the end I could get the values from the template. Little bit more complicated I imagined as I think I overdid (?!) the authentication. But this is the first time I do it, and I didn't learn it from Udemy yet. The best practises. There is no perfect code, but I think i improved a lot and looking forward to get the best practise from pros. 
