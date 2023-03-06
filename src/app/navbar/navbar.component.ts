@@ -12,7 +12,6 @@ export class NavbarComponent {
   userData: any = {};
 
   ngOnInit() {
-    // Subscribe to the behavior subject in the authentication service
     this.authService.loggedInUserData$.subscribe(data => {
       this.userData = data;
     });

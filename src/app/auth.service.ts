@@ -19,6 +19,18 @@ export class AuthService {
     password?: string;
   } = {};
 
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Applicant-Id': 'LrC5EqPa',
+      'Application-Authorization': this.getJwtToken(),
+    }),
+  };
+
+  get getHttpOptions() {
+    return this.httpOptions;
+  }
+
   private loggedInUserData = new BehaviorSubject<any>({});
 
   get loggedInUserData$() {
@@ -115,20 +127,13 @@ export class AuthService {
       return throwError('Refresh token not found.');
     }
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Applicant-Id': 'LrC5EqPa',
-      }),
-    };
-
     this.logInData.refreshToken = refreshToken;
 
     return this.http
       .post<Login>(
         'https://developer.webstar.hu/rest/frontend-felveteli/v2/authentication/',
         this.logInData,
-        httpOptions
+        this.httpOptions
       )
       .pipe(
         tap((response) => {
@@ -167,7 +172,7 @@ export class AuthService {
     console.log('This is my Refresh Token: ' + this.getRefreshToken());
   }
 
-  private getJwtToken(): string {
+  getJwtToken(): string {
     return this.cookieService.get(this.jwtTokenKey);
   }
 

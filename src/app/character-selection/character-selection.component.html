@@ -4,6 +4,14 @@
     <p>Character page works!</p>
     <input [(ngModel)]="myText" type="text" />
     <p style="color: white">{{ myText }}</p>
+
+    <div class="character-selection-container">
+      <p>Sajtos kifli</p>
+      <div *ngFor="let character of characters">
+        <p>{{ character }}</p>
+      </div>
+    </div>
+
   </div>
   <app-footer></app-footer>
 </div>

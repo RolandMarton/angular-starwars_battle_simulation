@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuardService } from './auth-guard.service';
 import { CharacterSelectionComponent } from './character-selection/character-selection.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { LoginGuardService } from './login-guard.service';
@@ -16,7 +15,6 @@ const routes: Routes = [
   {
     path: 'character',
     component: CharacterSelectionComponent,
-    canActivate: [AuthGuardService],
     canDeactivate: [LoginGuardService],
   },
   {

@@ -1,5 +1,7 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { CharacterService } from '../character.service';
+import { Characters } from '../model/character';
 
 @Component({
   selector: 'app-character-selection',
@@ -9,14 +11,30 @@ import { AuthService } from '../auth.service';
 export class CharacterSelectionComponent implements OnInit, DoCheck {
   myText = '';
   isAuthenticated: boolean = false;
+  characters: Characters[];
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private characterService: CharacterService
+  ) {}
 
   ngOnInit(): void {
     this.isAuthenticated = this.authService.isAuthenticated();
     if (!this.isAuthenticated) {
       this.authService.logout();
     }
+
+    this.characterService.getCharacters().subscribe(
+      (response: Characters[]) => {
+        console.log(response);
+        console.log(this.characters);
+        this.characters = response;
+        console.log(this.characters);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   ngDoCheck(): void {
