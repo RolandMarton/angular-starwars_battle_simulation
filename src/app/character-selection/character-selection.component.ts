@@ -32,11 +32,11 @@ export class CharacterSelectionComponent implements OnInit, DoCheck {
     centeredSlides: true,
     virtual: true,
     keyboard: { enabled: true },
-    speed: 1500,
-    // autoplay: {
-    //   delay: 2500,
-    //   disableOnInteraction: false
-    // }
+    speed: 2000,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false
+    }
   };
 
   myText = '';
