@@ -148,14 +148,14 @@ FINAL PROGRAM FOR 1 WEEK SPRINT
 
 VIDEOS
 
-PART 1
-https://user-images.githubusercontent.com/88943189/223278956-070e4b68-6df6-4713-9e77-2e60481609bb.mp4
+PART 1 - Login, Characters with Autoswiper, desktop view
+- https://user-images.githubusercontent.com/88943189/223278956-070e4b68-6df6-4713-9e77-2e60481609bb.mp4
 
-PART 2
-https://user-images.githubusercontent.com/88943189/223278975-2a826831-3c34-482f-b28d-f64bc0e8296e.mp4
+PART 2 - Responsivity, laptop, tablet, mobile view, Swipe in mobile mode, transition back to desktop
+- https://user-images.githubusercontent.com/88943189/223278975-2a826831-3c34-482f-b28d-f64bc0e8296e.mp4
 
-PART 3
-https://user-images.githubusercontent.com/88943189/223278995-7c56c3b2-18de-4c42-bf78-4698dc93dcf1.mp4
+PART 3 - Guards in action, authentication, cookies, logInData in localstorage
+- https://user-images.githubusercontent.com/88943189/223278995-7c56c3b2-18de-4c42-bf78-4698dc93dcf1.mp4
 
 PHOTOS
 - Login Page
