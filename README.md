@@ -144,8 +144,6 @@ No video at this time :( It looks the same really.
 
 # Development Day 5
 
-FINAL PROGRAM FOR 1 WEEK SPRINT
-
 VIDEOS
 
 PART 1 - Login, Characters with Autoswiper, desktop view
@@ -177,6 +175,22 @@ PHOTOS
 
 #Note
 - There is one more bug, but I am too tired to solve it as it's 12:30 now, and today I have to submit the homework. So I will do it now just to be sure be in time. If I log in, the content isn't displayed. Like the whole swiper but if you refresh it you get it. If you have once refreshed on the page. And log out. It is visible. So the key is to refresh the page. I will solve it but for now I will submit my homework
+
+# Development Day 6
+
+FINAL PROGRAM FOR 1 WEEK SPRINT
+
+VIDEO FOR FINAL PRODUCT
+
+https://user-images.githubusercontent.com/88943189/223407122-df9251f6-1087-4716-9757-36fbea1a7e06.mp4
+
+https://user-images.githubusercontent.com/88943189/223407517-5d5bdc4a-89eb-4331-b9ca-f25e0d61a2f6.mp4
+
+#Challenges and Highlights
+- The bug that was previously said was with the token. The access token wasn't set in time before the HTTP request, so it couldn't fetch the data. However if you had the token then it was no problem. The problem is solved.
+- Making asnyc updateAuthorizationHeader function. Working with Promise and Observable at the sam time, on the same element too.
+
+#Note
 - A lot of lesson was learnt especially about authentication, I had a lot of motivation during the development and learnt a lot of new stuff. I am glad to get this opportunity and thank you for the occasion!
 - I am a little bit sad I couldn't do the battle arena part. But I have done it in Vue.js in one of my project so at least I experienced how it should be done. 
 - So again thank you for the opportunity and hope to improve a lot like this in the future and I continue working on my Angular with Udemy!
