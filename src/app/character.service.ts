@@ -12,7 +12,8 @@ export class CharacterService {
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
-  getCharacters(): Observable<any[]> {
+  async getCharacters(): Promise<Observable<any[]>> {
+    await this.authService.updateAuthorizationHeader();
     return this.http.get<any[]>(this.apiUrl, this.authService.getHttpOptions);
   }
 }

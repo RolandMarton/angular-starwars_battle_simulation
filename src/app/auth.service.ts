@@ -23,9 +23,32 @@ export class AuthService {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'Applicant-Id': 'LrC5EqPa',
-      'Application-Authorization': this.getJwtToken(),
     }),
   };
+
+  constructor(
+    private http: HttpClient,
+    private cookieService: CookieService,
+    private router: Router
+  ) {
+    this.updateAuthorizationHeader();
+    const userData = localStorage.getItem('loggedInUserData');
+    if (userData) {
+      this.loggedInUserData.next(JSON.parse(userData));
+    }
+  }
+
+  async updateAuthorizationHeader() {
+    const jwtToken = await this.getJwtToken();
+    this.httpOptions.headers = this.httpOptions.headers.set(
+      'Application-Authorization',
+      jwtToken
+    );
+  }
+
+  private async getJwtToken(): Promise<string> {
+    return await this.cookieService.get(this.jwtTokenKey);
+  }
 
   get getHttpOptions() {
     return this.httpOptions;
@@ -35,17 +58,6 @@ export class AuthService {
 
   get loggedInUserData$() {
     return this.loggedInUserData.asObservable();
-  }
-
-  constructor(
-    private http: HttpClient,
-    private cookieService: CookieService,
-    private router: Router
-  ) {
-    const userData = localStorage.getItem('loggedInUserData');
-    if (userData) {
-      this.loggedInUserData.next(JSON.parse(userData));
-    }
   }
 
   isAuthenticated(): boolean {
@@ -170,10 +182,6 @@ export class AuthService {
     };
     this.cookieService.set(this.refreshTokenKey, token, options);
     console.log('This is my Refresh Token: ' + this.getRefreshToken());
-  }
-
-  getJwtToken(): string {
-    return this.cookieService.get(this.jwtTokenKey);
   }
 
   private getRefreshToken(): string {

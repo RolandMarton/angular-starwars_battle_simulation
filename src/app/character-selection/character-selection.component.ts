@@ -1,4 +1,4 @@
-import { Component, DoCheck, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, DoCheck, OnInit, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { CharacterService } from '../character.service';
 import { Character } from '../model/character';
@@ -9,7 +9,7 @@ import SwiperCore, {
   Navigation,
   Virtual,
   SwiperOptions,
-  Autoplay
+  Autoplay,
 } from 'swiper';
 
 SwiperCore.use([Keyboard, Pagination, Navigation, Virtual, Autoplay]);
@@ -21,9 +21,6 @@ SwiperCore.use([Keyboard, Pagination, Navigation, Virtual, Autoplay]);
   encapsulation: ViewEncapsulation.None,
 })
 export class CharacterSelectionComponent implements OnInit, DoCheck {
-  
-  @ViewChild('swiperSlideShow') swiperSlideShow!: ElementRef;
-
   config: SwiperOptions = {
     slidesPerView: 1,
     spaceBetween: 250,
@@ -35,8 +32,8 @@ export class CharacterSelectionComponent implements OnInit, DoCheck {
     speed: 2000,
     autoplay: {
       delay: 2500,
-      disableOnInteraction: false
-    }
+      disableOnInteraction: false,
+    },
   };
 
   myText = '';
@@ -49,21 +46,23 @@ export class CharacterSelectionComponent implements OnInit, DoCheck {
     private characterService: CharacterService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.isAuthenticated = this.authService.isAuthenticated();
     if (!this.isAuthenticated) {
       this.authService.logout();
     }
 
-    this.characterService.getCharacters().subscribe(
-      (response: any) => {
-        console.log(response);
-        this.characters = response.characters;
-        console.log(this.characters);
-      },
-      (error) => {
-        console.error(error);
-      }
+    this.characterService.getCharacters().then((res) =>
+      res.subscribe(
+        (response: any) => {
+          console.log(response);
+          this.characters = response.characters;
+          console.log(this.characters);
+        },
+        (error) => {
+          console.error(error);
+        }
+      )
     );
   }
 
