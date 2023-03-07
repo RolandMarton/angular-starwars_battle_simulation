@@ -188,7 +188,7 @@ https://user-images.githubusercontent.com/88943189/223407517-5d5bdc4a-89eb-4331-
 
 #Challenges and Highlights
 - The bug that was previously said was with the token. The access token wasn't set in time before the HTTP request, so it couldn't fetch the data. However if you had the token then it was no problem. The problem is solved.
-- Making asnyc updateAuthorizationHeader function. Working with Promise and Observable at the sam time, on the same element too.
+- Making asnyc updateAuthorizationHeader function. Working with Promise and Observable at the same time, on the same element too.
 
 #Note
 - A lot of lesson was learnt especially about authentication, I had a lot of motivation during the development and learnt a lot of new stuff. I am glad to get this opportunity and thank you for the occasion!
