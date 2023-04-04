@@ -191,6 +191,8 @@ https://user-images.githubusercontent.com/88943189/223407517-5d5bdc4a-89eb-4331-
 - Making asnyc updateAuthorizationHeader function. Working with Promise and Observable at the same time, on the same element too.
 
 ## Note
+- If I would start over, I wouldnt use cookies for authentication as It is vulnerable for XSS or CSRF but would store JWT in the localstorage. 
+
 - A lot of lesson was learnt especially about authentication, I had a lot of motivation during the development and learnt a lot of new stuff. I am glad to get this opportunity and thank you for the occasion!
 - I am a little bit sad I couldn't do the battle arena part. But I have done it in Vue.js in one of my project so at least I experienced how it should be done. 
 - So again thank you for the opportunity and hope to improve a lot like this in the future and I continue working on my Angular with Udemy!
